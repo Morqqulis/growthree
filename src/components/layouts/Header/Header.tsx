@@ -1,21 +1,31 @@
 'use client'
-import { headerNavigation } from '#static/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import HeaderMenu from './HeaderMenu'
 import { useEffect, useState } from 'react'
+import HeaderMenu from './HeaderMenu'
 
 const Header = () => {
 	const [menuActive, setMenuActive] = useState(false)
 
+	const handleClick = () => setMenuActive(!menuActive)
+
 	useEffect(() => {
+		if (!document) return
+
 		if (menuActive) {
 			document.documentElement.classList.add('menu-open')
 		} else {
 			document.documentElement.classList.remove('menu-open')
 		}
 
+		window.addEventListener('resize', () => {
+			if (menuActive && window.innerWidth > 768) {
+				setMenuActive(false)
+			}
+		})
+
 		return () => {
+			window.removeEventListener('resize', () => {})
 			document.documentElement.classList.remove('menu-open')
 		}
 	}, [menuActive])
@@ -31,7 +41,7 @@ const Header = () => {
 							alt={'logo'}
 							width={0}
 							height={0}
-                            priority
+							priority
 						/>
 					</Link>
 					<div className={`flex flex-1 items-center justify-end gap-2`}>
@@ -44,7 +54,7 @@ const Header = () => {
 						className={`relative ml-2 flex h-[30px] min-w-[2em] flex-col justify-center gap-[.4em] md:hidden`}
 						type={'button'}
 						aria-label={'Hamburger menu button'}
-						onClick={() => setMenuActive(!menuActive)}>
+						onClick={handleClick}>
 						<span
 							className={`h-[2px] w-full rounded-[10em] bg-cgray duration-300 ${menuActive && 'absolute top-1/2 -translate-y-1/2 rotate-45'}`}></span>
 						<span

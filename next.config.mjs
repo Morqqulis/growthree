@@ -12,7 +12,7 @@ const nextConfig = {
 	},
 	experimental: {
 		reactCompiler: true,
-		typedRoutes: true,
+		typedRoutes: false,
 		cssChunking: 'loose',
 		turbo: {
 			resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json', '.css', '.scss'],
