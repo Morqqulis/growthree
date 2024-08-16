@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--index: calc(1vw + 1vh);
+		@apply text-[16px];
+	}
+	html,
+	body,
+	main {
+		@apply h-full;
+	}
+	body {
+		@apply bg-[#2b474b] text-white group-[.menu-open]:after:absolute group-[.menu-open]:after:inset-0 group-[.menu-open]:after:bg-[rgba(0,0,0,0.8)] after:duration-300 group-[.menu-open]:after:z-20 group-[.menu-open]:overflow-hidden;
+	}
+	main {
+		@apply min-w-0 flex-[1_1_auto];
+	}
+	button,
+	a {
+		@apply whitespace-nowrap;
+	}
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@layer components {
+	.container {
+		@apply min-w-[20rem] max-w-[90rem];
+	}
+	.swiper-wrapper {
+		@apply will-change-transform;
+	}
+	.button {
+		@apply rounded-[10em] rounded-tr-none border-[.0938rem] border-transparent bg-cgreen px-[2.6em] py-[1.05em] text-[.65em] font-semibold uppercase tracking-[0.21em] text-white duration-300 hover:bg-cgreen lg:text-[.75em];
+	}
+	.button_top {
+		@apply border-cgreen bg-transparent;
+	}
+
+	.headerLink {
+		@apply relative font-bold uppercase tracking-[.25em] text-cgray duration-300 before:relative before:-left-[.0938rem] before:-top-[.0625rem] before:mr-[.4531rem] before:inline-block before:h-[.125rem] before:w-[.7031rem] before:rounded-[10em] before:bg-cgreen before:align-middle before:transition-all before:duration-300 after:relative after:-left-[.0938rem] after:-top-[.0625rem] after:ml-[.4531rem] after:inline-block after:h-[.125rem] after:w-[.7031rem] after:rounded-[10em] after:bg-cgreen after:align-middle after:transition-all after:duration-300 hover:text-white hover:before:scale-100 hover:after:scale-100 md:text-[.725em] lg:text-lg;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
