@@ -13,7 +13,7 @@ const HeaderMenu = ({ active }: { active: boolean }) => {
 				<li className={`block w-full text-center md:w-auto`} key={item.id}>
 					<Link
 						className={`headerLink block w-full py-10 md:py-0 ${path === item.link ? 'text-white before:scale-100 after:scale-100' : 'before:scale-0 after:scale-0'}`}
-						href={item.link}>
+						href={{ pathname: item.link }}>
 						{item.title}
 					</Link>
 				</li>
