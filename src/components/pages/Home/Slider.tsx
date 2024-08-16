@@ -66,7 +66,7 @@ const Slider = () => {
 										{item.description}
 									</p>
 									<button
-										className={`button pointer-events-auto relative top-0 border-cgreen px-[3.5em] py-[1.6em] text-[.5em] hover:scale-125 hover:border-[1.5px] hover:bg-transparent`}
+										className={`button pointer-events-auto relative top-0 text-black border-cgreen px-[3.5em] py-[1.6em] text-[.5em] hover:scale-125 hover:border-[1.5px] hover:bg-transparent`}
 										type={'button'}
 										aria-label={'Getting started button'}>
 										Plant a tree now
